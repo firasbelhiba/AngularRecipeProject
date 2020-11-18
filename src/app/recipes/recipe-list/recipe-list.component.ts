@@ -10,21 +10,22 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit , OnDestroy {
+export class RecipeListComponent implements OnInit, OnDestroy {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [];
   subscription: Subscription;
+  index: number;
 
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.subscription = this.recipeService.recipesChanged
-    .subscribe(
-      (recipes: Recipe[]) => {
-        this.recipes = recipes;
-      }
-    );
+      .subscribe(
+        (recipes: Recipe[]) => {
+          this.recipes = recipes;
+        }
+      );
     this.recipes = this.recipeService.getRecipes();
   }
 
@@ -33,11 +34,24 @@ export class RecipeListComponent implements OnInit , OnDestroy {
   }
 
   onNewRecipe() {
-    this.router.navigate(['new'] , {relativeTo: this.route});
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
+
+  onClearList() {
+    this.index = this.recipes.length + 1;
+    console.log(this.index);
+    for (let i = 0; i <= this.index; i++) {
+      this.recipeService.deleteRecipe(i);
+      this.router.navigate['recipe'];
+    }
+
+
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+
+
 
 }
