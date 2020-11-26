@@ -15,6 +15,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[] = [];
   subscription: Subscription;
   index: number;
+  searchValue: string;
 
 
   constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) { }

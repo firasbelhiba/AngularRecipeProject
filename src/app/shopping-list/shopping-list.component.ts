@@ -11,6 +11,7 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [];
+  searchValue: string;
 
 
   constructor(private slService: ShoppingListService) { }

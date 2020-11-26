@@ -19,6 +19,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { SearchPipe } from './pipe/search.pipe';
+import { SearchIngPipe } from './pipe/search-ing.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SearchPipe,
+    SearchIngPipe
   ],
   imports: [
     BrowserModule,

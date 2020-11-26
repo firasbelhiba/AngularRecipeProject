@@ -3,12 +3,17 @@
     <app-shopping-edit></app-shopping-edit>
     <hr>
     <ul class="list-group">
-      <a
-        class="list-group-item"
-        style="cursor: pointer"
-        *ngFor="let ingredient of ingredients, let i = index"
-        (click) = "onEditItem(i)"
-      >
+
+        <div class="row">
+          <div class="col-xs-5">
+            <input type="text" [(ngModel)]="searchValue" class="form-control" id="search">
+          </div>
+        </div>
+    
+      <hr>
+
+      <a class="list-group-item" style="cursor: pointer" *ngFor="let ingredient of ingredients | searchIng:searchValue , let i = index"
+        (click)="onEditItem(i)">
         {{ ingredient.name }} ({{ ingredient.amount }})
       </a>
     </ul>
