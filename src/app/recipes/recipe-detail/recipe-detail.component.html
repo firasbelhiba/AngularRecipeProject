@@ -33,6 +33,22 @@
       <h2>Ingredients</h2>
       <p>These are the ingredients of the recipe :</p>
       <div class="col-xs-10">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-5">
+              <input type="text" [(ngModel)]="searchedIngredient" (input)="onSearch()">&nbsp;
+
+              <select class="list-group" [(ngModel)]="selectedItem">
+                <option>Ingredient</option>
+                <option>Amount</option>
+              </select>
+
+            </div>
+
+          </div>
+        </div>
+        <hr>
         <table class="table table-hover table-condensed table-striped table-bordered">
 
           <thead>
