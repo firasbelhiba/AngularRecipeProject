@@ -1,9 +1,21 @@
-<a [routerLink] = "[index]" routerLinkActive="active" style="cursor: pointer;" class="list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <p class="list-group-item-text">{{ recipe.description }}</p>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lemonada:wght@300;500&family=Sansita+Swashed:wght@500&family=Yanone+Kaffeesatz:wght@200&display=swap"
+  rel="stylesheet">
+<div class="card-row" [routerLink]="[index]" routerLinkActive="active" style="cursor: pointer;">
+  <div class="card">
+    <img class="card-image" [src]="recipe.imagePath" alt="{{ recipe.name }}">
+    <div class="card-footer">
+      <p class="card-text" style="font-family: 'Dancing Script', cursive; font-size: 38px;
+          margin-bottom: 20px;
+          line-height: 14px;
+          letter-spacing: 0.07em;">Recipe</p>
+      <h3 class="card-title" style="font-family: 'Dancing Script', cursive;">{{ recipe.name }}</h3>
+      <p class="card-text">
+        <span class="card-author" style="font-family: 'Dancing Script', cursive;">{{ recipe.description }}</span>
+      </p>
+    </div>
   </div>
-  <span class="pull-right">
-    <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 50px;">
-  </span>
-</a>
+</div>
